@@ -1,21 +1,12 @@
-import './App.css';
-import Field from './components/Field';
+import Field from './Field';
 import react from 'react';
 
-class App extends react.Component{
+class Form extends react.Component{
   constructor(props){
     super(props);
 
-    this.state = {
-      normal: {
-        name: '',
-        email: ''
-      },
-      input: {
-        name: '',
-        email: ''
-      }
-    };
+    this.state = this.props.state;
+
 
     this.onInputChangeHandler = this.onInputChangeHandler.bind(this); 
     this.onSubmit = this.onSubmit.bind(this);
@@ -42,12 +33,21 @@ class App extends react.Component{
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <Field labelName="Name" inputName='name' inputChangeHandler={this.onInputChangeHandler}
-            inputValue={this.state.input.name}
-          />
-          <Field labelName="Email" inputName='email' inputChangeHandler={this.onInputChangeHandler}
-            inputValue={this.state.input.email}
-          />
+          <fieldset>
+            <legend>General Information</legend>  
+            <Field type='text' labelName="Name" inputName='name'
+              inputChangeHandler={this.onInputChangeHandler} 
+              inputValue={this.state.input.name}
+            />
+            <Field type='email' labelName="Email" inputName='email'
+              inputChangeHandler={this.onInputChangeHandler}
+              inputValue={this.state.input.email}
+            />
+            <Field type='number' labelName="Phone No." inputName='phno'
+              inputChangeHandler={this.onInputChangeHandler}
+              inputValue={this.state.input.phno}
+            />
+          </fieldset>
    
           <button type='submit'>Submit</button>
         </form>
@@ -56,4 +56,4 @@ class App extends react.Component{
   }
 }
 
-export default App;
+export default Form;

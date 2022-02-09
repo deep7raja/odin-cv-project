@@ -8,9 +8,9 @@ class Field extends react.Component{
     render(){
         return (
             <div>
-                <label htmlFor='idInput'>{this.props.labelName} : </label>
-                <input type='text'
-                    id='idInput'
+                <label htmlFor={this.props.inputName}>{this.props.labelName} : </label>
+                <input type={this.props.type}
+                    id={this.props.inputName}
                     name={this.props.inputName}
                     onChange={this.props.inputChangeHandler}
                     value={this.props.inputValue}></input>
