@@ -41,7 +41,7 @@ class Form extends react.Component{
               inputChangeHandler={this.onInputChangeHandler} 
               inputValue={this.state.input.name}
             />
-            <Field type='email' labelName="Email" inputName='email'
+            <Field type='text' labelName="Email" inputName='email'
               inputChangeHandler={this.onInputChangeHandler}
               inputValue={this.state.input.email}
             />

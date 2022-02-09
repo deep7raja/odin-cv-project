@@ -1,6 +1,6 @@
 import react from 'react';
 import Form from './Form'
-
+import Result from './Result';
 
 class App extends react.Component{
     constructor(props){
@@ -32,7 +32,7 @@ class App extends react.Component{
             return <Form state={this.state} updateState={this.updateState}/>
         }
         else{
-            return <div>Hello there</div>
+            return <Result state={this.state}/>
         }
     }
 

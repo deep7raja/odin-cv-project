@@ -1,4 +1,5 @@
 import react from 'react';
+import './styles/Result.css'
 
 
 class Result extends react.Component{
@@ -10,9 +11,9 @@ class Result extends react.Component{
         let rows = [];
         for(let value in this.props.state.normal){
             rows.push(
-                <div>
+                <div className='result-field'>
                     <div>
-                    {value}
+                    {value} : 
                     </div>
                     <div>
                     {this.props.state.normal[value]}
