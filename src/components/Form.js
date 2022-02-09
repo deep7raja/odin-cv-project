@@ -7,7 +7,6 @@ class Form extends react.Component{
 
     this.state = this.props.state;
 
-
     this.onInputChangeHandler = this.onInputChangeHandler.bind(this); 
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -16,6 +15,7 @@ class Form extends react.Component{
     let temp = JSON.parse(JSON.stringify(this.state));
     temp.input[e.target.name] = e.target.value;
     this.setState(temp);
+    this.props.updateState(temp);
   }
 
   onSubmit(e){
@@ -26,7 +26,9 @@ class Form extends react.Component{
       temp.normal[value] = this.state.input[value];
       temp.input[value] = '';
     }
+    temp.onForm = false;
     this.setState(temp, ()=>console.log(this.state));
+    this.props.updateState(temp);
   }
 
   render(){

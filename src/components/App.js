@@ -7,6 +7,7 @@ class App extends react.Component{
         super(props);
 
         this.state = {
+            onForm: true,
             normal: {
               name: '',
               email: '',
@@ -18,12 +19,21 @@ class App extends react.Component{
               phno: 91
             }
         };
+
+        this.updateState = this.updateState.bind(this);
+    }
+
+    updateState(a_state){
+        this.setState(a_state);
     }
 
     render(){
-        return(
-            <Form state={this.state}/>
-        );
+        if(this.state.onForm){
+            return <Form state={this.state} updateState={this.updateState}/>
+        }
+        else{
+            return <div>Hello there</div>
+        }
     }
 
    
