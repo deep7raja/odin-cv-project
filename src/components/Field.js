@@ -1,22 +1,14 @@
-import react from 'react'
-
-class Field extends react.Component{
-    constructor(props){
-        super(props);
-    }
-
-    render(){
-        return (
-            <div className='form-field'>
-                <label htmlFor={this.props.inputName}>{this.props.labelName} : </label>
-                <input type={this.props.type}
-                    id={this.props.inputName}
-                    name={this.props.inputName}
-                    onChange={this.props.inputChangeHandler}
-                    value={this.props.inputValue}></input>
-            </div>
-        );
-    }
+const Field = (props)=> {
+    return  (
+        <div className='form-field'>
+            <label htmlFor={props.inputName}>{props.labelName} : </label>
+            <input type={props.type}
+                id={props.inputName}
+                name={props.inputName}
+                onChange={props.inputChangeHandler}
+                value={props.inputValue}></input>
+        </div>
+    );
 }
 
 export default Field;
