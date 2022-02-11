@@ -1,5 +1,6 @@
 import Field from './Field';
 import react from 'react';
+import './styles/Form.css';
 
 class Form extends react.Component{
   constructor(props){
@@ -15,7 +16,7 @@ class Form extends react.Component{
     let temp = JSON.parse(JSON.stringify(this.state));
     temp.input[e.target.name] = e.target.value;
     this.setState(temp);
-    this.props.updateState(temp);
+    // this.props.updateState(temp);
   }
 
   onSubmit(e){
@@ -37,15 +38,15 @@ class Form extends react.Component{
         <form onSubmit={this.onSubmit}>
           <fieldset>
             <legend>General Information</legend>  
-            <Field type='text' labelName="Name" inputName='name'
+            <Field type='text' labelName={this.state.label.name} inputName='name'
               inputChangeHandler={this.onInputChangeHandler} 
               inputValue={this.state.input.name}
             />
-            <Field type='text' labelName="Email" inputName='email'
+            <Field type='text' labelName={this.state.label.email} inputName='email'
               inputChangeHandler={this.onInputChangeHandler}
               inputValue={this.state.input.email}
             />
-            <Field type='number' labelName="Phone No." inputName='phno'
+            <Field type='number' labelName={this.state.label.phno} inputName='phno'
               inputChangeHandler={this.onInputChangeHandler}
               inputValue={this.state.input.phno}
             />

@@ -7,7 +7,7 @@ class Field extends react.Component{
 
     render(){
         return (
-            <div>
+            <div className='form-field'>
                 <label htmlFor={this.props.inputName}>{this.props.labelName} : </label>
                 <input type={this.props.type}
                     id={this.props.inputName}

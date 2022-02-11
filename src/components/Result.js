@@ -11,19 +11,23 @@ class Result extends react.Component{
         let rows = [];
         for(let value in this.props.state.normal){
             rows.push(
-                <div className='result-field'>
-                    <div>
-                    {value} : 
-                    </div>
-                    <div>
+                <div className='result-label'>
+                    {this.props.state.label[value]} : 
+                </div>
+            )
+            rows.push(
+                <div>
                     {this.props.state.normal[value]}
-                    </div>
                 </div>
             )
         }
         return (
-            <div>
+            <div className='result-container'>
                 {rows}
+                <div className='result-buttons'>
+                    <button onClick={this.props.onEditClicked}>Edit Details</button>
+                    <button>Submit Form</button>
+                </div>
             </div>
         );
     }
