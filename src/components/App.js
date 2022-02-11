@@ -1,58 +1,47 @@
-import react from 'react';
+import { useState } from 'react';
 import Form from './Form'
 import Result from './Result';
 
-class App extends react.Component{
-    constructor(props){
-        super(props);
+const App = (props) =>{
+    const [state, setState] = useState({
+        onForm: true,
+        normal: {
+          name: '',
+          email: '',
+          phno: 91
+        },
+        input: {
+          name: '',
+          email: '',
+          phno: 91
+        },
+        label:{
+            name: 'Name',
+            email: 'Email',
+            phno: 'Phone No.'
+        }
+    })
 
-        this.state = {
-            onForm: true,
-            normal: {
-              name: '',
-              email: '',
-              phno: 91
-            },
-            input: {
-              name: '',
-              email: '',
-              phno: 91
-            },
-            label:{
-                name: 'Name',
-                email: 'Email',
-                phno: 'Phone No.'
-            }
-        };
-
-        this.updateState = this.updateState.bind(this);
-        this.onEditClicked = this.onEditClicked.bind(this);
+    const updateState = (a_state)=>{
+        setState(a_state);
     }
 
-    updateState(a_state){
-        this.setState(a_state);
-    }
-
-    onEditClicked(){
-        let temp = JSON.parse(JSON.stringify(this.state));
-        for(let value in this.state.input){
-          temp.normal[value] = this.state.input[value];
-          temp.input[value] = this.state.normal[value];
+    const onEditClicked = ()=>{
+        let temp = JSON.parse(JSON.stringify(state));
+        for(let value in state.input){
+          temp.normal[value] = state.input[value];
+          temp.input[value] = state.normal[value];
         }
         temp.onForm = true;
-        this.setState(temp);
+        setState(temp);
     }
 
-    render(){
-        if(this.state.onForm){
-            return <Form state={this.state} updateState={this.updateState}/>
-        }
-        else{
-            return <Result state={this.state} onEditClicked={this.onEditClicked}/>
-        }
+    if(state.onForm){
+        return <Form state={state} updateState={updateState}/>
     }
-
-   
+    else{
+        return <Result state={state} onEditClicked={onEditClicked}/>
+    }
 }
 
 export default App;
