@@ -5,20 +5,17 @@ import Result from './Result';
 const App = (props) =>{
     const [state, setState] = useState({
         onForm: true,
-        normal: {
-          name: '',
-          email: '',
-          phno: 91
-        },
-        input: {
-          name: '',
-          email: '',
-          phno: 91
-        },
-        label:{
-            name: 'Name',
-            email: 'Email',
-            phno: 'Phone No.'
+        gen: {
+            values: {
+                name: '',
+                email: '',
+                phno: 91
+            },
+            label: {
+                name: 'Name',
+                email: 'Email',
+                phno: 'Phone No.'
+            }
         }
     })
 
@@ -27,11 +24,7 @@ const App = (props) =>{
     }
 
     const onEditClicked = ()=>{
-        let temp = JSON.parse(JSON.stringify(state));
-        for(let value in state.input){
-          temp.normal[value] = state.input[value];
-          temp.input[value] = state.normal[value];
-        }
+        let temp = {...state};
         temp.onForm = true;
         setState(temp);
     }

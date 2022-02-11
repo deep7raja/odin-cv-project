@@ -2,17 +2,16 @@ import './styles/Result.css'
 
 const Result = (props)=>{
     let rows = [];
-    for(let value in props.state.normal){
+    for(let value in props.state.gen.values){
         rows.push(
             <div className='result-label'>
-                {props.state.label[value]} : 
+                {props.state.gen.label[value]} : 
             </div>
-        )
-        rows.push(
+        ,
             <div>
-                {props.state.normal[value]}
+                {props.state.gen.values[value]}
             </div>
-        )
+        );
     }
     return (
         <div className='result-container'>
