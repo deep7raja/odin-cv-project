@@ -1,15 +1,25 @@
-.result-container{
+.result-fieldset{
     font-size: 20px;
     display: grid;
     grid-template-columns: auto auto;
     gap: 20px 10px;
+    justify-content: center;
 }
-.result-label{
+
+.result-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.result-container>*{
+    width: clamp(300px, 40vw, 500px)
+}
+/* .result-label{
     justify-self: right;
-}
-.result-buttons{
+} */
+/* .result-buttons{
     grid-column: 1/3;
     justify-self: center;
     display: flex;
     gap: 20px;
-}
+} */

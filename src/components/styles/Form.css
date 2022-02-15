@@ -3,12 +3,12 @@
     align-items: center;
 }
 .form-field>label{
-    width: 100px;
+    width: 200px;
     text-align: right;
     margin: 10px;
 }
 .form-field{
-    width: 300px;
+    width: 500px;
 }
 form{
     display: flex;

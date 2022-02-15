@@ -16,6 +16,23 @@ const App = (props) =>{
                 email: 'Email',
                 phno: 'Phone No.'
             }
+        },
+        edu: {
+            values: [{
+                name: 'aa',
+                title: 'bb',
+                date: ''
+            },
+            {
+                name: 'cc',
+                title: 'dd',
+                date: ''
+            }],
+            label:{
+                name: 'School Name',
+                title: "Title of Study",
+                date: "Date of Study"
+            }
         }
     })
 
